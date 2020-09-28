@@ -1,0 +1,125 @@
+---------------------------------------------------------------------
+Astronomy 300 - Week 1 Notes - Command Line Data Exploration
+---------------------------------------------------------------------
+
+$ pwd                  Show the current directory path.
+
+$ ls                   list the files in a directory
+
+---------------------------------------------------------------------
+
+$ cd Data                               change to the Data directory
+
+$ cat BrightStars.csv
+$ more BrightStars.csv                  "q" to quit
+
+$ cp BrightStars.csv junk.dat           Copy files
+$ mv junk.dat junque.dat                Rename files
+$ rm junque.dat                         Delete file (NO RECOVERY!)
+
+---------------------------------------------------------------------
+
+wildcards (*) and (?)
+
+* - Matches ANY (0 or more) character or characters in a filename.
+? - Matches ANY ONE character in a filename.
+
+$ ls B*.csv        will find BrightStars.csv
+$ ls B?.csv        will NOT find BrightStars.csv
+
+Be very careful with "*".  It can ruin your life!  For example "rm *"
+will wipe out all of your files in the current directory, no questions
+asked, no chance of recovery. 
+
+---------------------------------------------------------------------
+
+[TAB] Completion
+$ less B[TAB]      Hit [TAB] again to show all options
+
+[UP] [DOWN] arrows - command history
+
+$ history          Shows history of commands
+
+$ !num             will rerun num command
+
+---------------------------------------------------------------------
+
+Line Numbers
+
+$ nl Jabber.txt          Shows line number
+$ nl -ba Jabber.txt      including blank lines (more useful)
+
+---------------------------------------------------------------------
+
+Chopping Streams (head and tail)
+
+$ head BrightStars.csv            first 10 lines
+$ tail BrightStars.csv            last 10 lines
+
+$ head -20 BrightStars.csv        first 20 lines
+$ tail -20 BrightStars.csv        last 20 lines
+
+---------------------------------------------------------------------
+
+Diverting Streams (> and >>)
+
+$ head -23 BrightStars.csv > 10Bright.csv     (>) crates file, overwriting old
+$ ls
+
+$ wc 10Bright.csv                             number of lines, words, and bytes
+
+$ tail -11 BrightStars.csv >> 10Bright.csv    (>>) appends data to file
+
+$ wc 10Bright.csv
+
+---------------------------------------------------------------------
+
+Connecting Streams - pipes (|)
+
+$ cat 10Bright.csv | grep 'e'        <- grep matches thing in ' '
+$ cat 10Bright.csv | grep 'e' | wc
+
+---------------------------------------------------------------------
+
+Sorting Streams - sort
+
+$ cat 10Bright.csv | sort -t ',' -k 2         Alphabetical sort (default)
+$ cat 10Bright.csv | sort -t ',' -k 1         Not good for numbers!
+$ cat 10Bright.csv | sort -t ',' -g -k 1      Numerical sort (very different)
+$ cat 10Bright.csv | sort -t ',' -g -r -k 5   Reverse sort
+
+-------------------------------------------------------------
+
+AWK - Aho, Weinberger, & Kernighan
+
+$ cat 10Bright.csv | awk -F, '{print $2}'    print 2nd column
+$ cat 10Bright.csv | awk -F, '{print $0}'    Same as $ cat 10Bright.csv
+
+$ cat 10Bright.csv | awk -F, '{print $5,$1}'
+$ cat 10Bright.csv | awk -F, '{OFS=","}{print $5,$1}'
+
+-------------------------------------------------------------
+
+==  equal to               <   less than                  &&  and
+!=  not equal to           >=  greater than or equal to   ||  or
+>   greater than           <=  less than or equal to
+
+-------------------------------------------------------------
+
+Print all lines where the value of column 4 > 0.0:
+
+$ cat 10Bright.csv | awk -F, '{if ($4 > 0.0) print $0}'
+
+-------------------------------------------------------------
+
+Print all lines where the value of column 5 is between 0.0 and 1.0: 
+
+$ cat 10Bright.csv | awk -F, '{if ($5>0.0 && $5<1.0) print $0}'
+
+-------------------------------------------------------------
+
+Print all lines where the value of column 2 contains "A" (anywhere in the column):
+
+$ cat 10Bright.csv | awk -F, '{if ($2~/A/) print $0}'
+
+You can append '| wc' to the end of each of the above to get a count

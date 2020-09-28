@@ -1,0 +1,13 @@
+################################################
+#
+# List of the ~500 brigtest stars
+#
+# The data columns are:
+#   1: HD Number (Henry Draper Catalogue Number)
+#   2: Common Name
+#   3: Right Ascension (RA)
+#   4: Declination (Dec)
+#   5: Visual Magnitude (V)
+#   6: Color Index (B-V)
+#
+###############################################

@@ -1,0 +1,25 @@
+The file in the Data folder: "Constellations.csv" contains a list of the 88 constellations in the sky.
+
+The 5 columns in the files are:
+* Name
+* Symbol
+* RA of center
+* Dec of center
+* Flag
+
+The Flag column letters are:
+* Z = Zodiacal constellation
+* A = Ancient Name
+* M = Modern Name (after 1603)
+
+Use (some) of the commands we looked at today and the file "Astro_Coordinates.pdf" to answer the following question.
+
+Copy and Paste your answers from the command line to the bottom of this file, save the file, and then upload it to Canvas
+(Assignment: Unix)
+
+-----
+
+Question to Answer:
+
+List the constellations that are circumpolar as seen from Seattle (lat = +47.6 deg).
+
