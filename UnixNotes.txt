@@ -19,6 +19,12 @@ $ rm junque.dat                         Delete file (NO RECOVERY!)
 
 ---------------------------------------------------------------------
 
+$ ls --help
+
+$ ls -ltr
+
+---------------------------------------------------------------------
+
 wildcards (*) and (?)
 
 * - Matches ANY (0 or more) character or characters in a filename.
@@ -86,7 +92,7 @@ Sorting Streams - sort
 $ cat 10Bright.csv | sort -t ',' -k 2         Alphabetical sort (default)
 $ cat 10Bright.csv | sort -t ',' -k 1         Not good for numbers!
 $ cat 10Bright.csv | sort -t ',' -g -k 1      Numerical sort (very different)
-$ cat 10Bright.csv | sort -t ',' -g -r -k 5   Reverse sort
+$ cat 10Bright.csv | sort -t ',' -g -r -k 1   Reverse sort
 
 -------------------------------------------------------------
 
