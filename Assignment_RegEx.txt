@@ -1,0 +1,55 @@
+------------------------------------------------------------------------
+RegEx Assignment - Due Wed Oct 7 (1 pm)
+
+Answer Template: "RegEx_HW.txt" <-- Fill-in and upload to Canvas
+------------------------------------------------------------------------
+
+Part I - Regex Golf is an exercise of trying to find the shortest
+regular expression that matches all strings in one given set, but does
+not match any of the strings in a different given set. Like golf, a
+lower score is better.
+
+For example, this is the content of the file "golf_00":
+
+00 one
+01 two
+02 three
+
+00 four
+01 five
+02 six
+
+The goal is to find a regex that will match the top set (one, two,
+three), but not match ANY of the bottom set (four, five, six).
+
+This will work:  grep -E 'one|two|three' golf_00 - 13 characters - Not a good score
+
+This is better:  grep -E 't|n' golf_00 - 3 characters - A much better score.
+
+I have given you 5 holes to play (golf_01 .. golf_05).
+
+The files in the directory /Data/GOLF
+
+ - You can ONLY use the -E flag. No -v or -o flags allowed!
+ - They get harder as you go on.
+ - The approximate pars are listed below.
+ - Some holes can be played under par. Some not.
+ - If you are stuck, I have given you some helpful(?) clues in golf_HINTS
+
+Hole | 01 | 02 | 03 | 04 | 05 |
+---------------------------------------------------
+Par  | 3  | 3  | 6  | 9  | 7  |   Total = 28
+
+------------------------------------------------------------------------
+
+Part II - The text of the novel "Martin Chuzzlewit" by Charles Dickens
+is contained in the file "/Data/Novel.txt"
+
+Determine the two most common letters and the two least common letters 
+in "Novel.txt". (convert everything to lowercase).
+
+Determine the 5 most common WORDS in "Novel.txt" with length >= 7 letters
+(ignore case).
+
+Determine the longest word in "Novel.txt". If there is more than one list
+them all
